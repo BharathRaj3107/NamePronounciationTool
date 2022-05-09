@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>Hi {{data.legalName}}</h1>
+<div mat-dialog-content class="edit-name-div"  >
+  <!-- <p>What's your favorite animal?</p> -->
+  <mat-form-field appearance="fill">
+    <mat-label>Legal Name</mat-label>
+    <input matInput [(ngModel)]="data.legalName">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Preferred Name</mat-label>
+    <input matInput [(ngModel)]="data.preferredName">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Location</mat-label>
+    <input matInput [(ngModel)]="data.location">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions  align="end">
+  <button mat-stroked-button color="primary" (click)="onNoClick()">No Thanks</button>
+  <button mat-stroked-button color="primary" [mat-dialog-close]="data" cdkFocusInitial>Update</button>
+</div>

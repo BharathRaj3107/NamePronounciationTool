@@ -1,0 +1,62 @@
+<div class="add-name-main-div">
+
+  <h1 style="align-self: flex-start;">Enter your details:</h1>
+  <div class="name-container">
+
+
+    <mat-form-field>
+      <mat-label>Legal name</mat-label>
+      <input matInput placeholder="Enter your legal name">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Preferred name</mat-label>
+      <input matInput placeholder="Enter your preferred name">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Select location">
+        <mat-option value="option">IND</mat-option>
+        <mat-option value="option">US</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div style="font-size: 16px; font-weight: 400; ">
+      <mat-label>Record your name: </mat-label>
+      <div>
+        <div *ngIf="!recording">
+          <mat-label>Click here to start recording: </mat-label>
+          <!-- <mat-icon>record_voice_over</mat-icon> -->
+          <button mat-fab (click)="initiateRecording()" color="primary" >
+            <mat-icon>play_arrow</mat-icon>
+          </button>
+        </div>
+        <div *ngIf="recording">
+          <mat-label>Click here to stop recording: </mat-label>
+          <button mat-fab color="warn" (click)="stopRecording()" >
+            <mat-icon>stop</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div *ngIf="url" class="recorded-div">
+        <mat-label>Recorded audio:</mat-label>
+        <audio controls="">
+          <source [src]="sanitize(url)" type="audio/wav">
+        </audio>
+      </div>
+    </div>
+
+    <!-- <div style="text-align:center;">
+      
+      <mat-label>Record your name here</mat-label>
+      <mat-icon>record_voice_over</mat-icon>
+        <button mat-fab (click)="initiateRecording()" class="btn btn-primary" *ngIf="!recording"
+            style="cursor: pointer;background-color: green;color: white;font-size: 24px;"> <mat-icon>play_arrow</mat-icon></button>
+        <button mat-fab (click)="stopRecording()" color="red" class="btn btn-danger" *ngIf="recording"
+            style="cursor: pointer;background-color: red;color: white;font-size: 24px;"> <mat-icon>stop</mat-icon></button>
+        <audio controls="" *ngIf="url">
+            <source [src]="sanitize(url)" type="audio/wav">
+        </audio>
+    </div> -->
+  </div>
+</div>
